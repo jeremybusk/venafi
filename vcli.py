@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+# ./vcli.py  -H venafi.example.com -c <api-client-id> -u <myuser> -d "\VED\Policy\Certificates\Common\Development\*.dev.example.com"
 
 import argparse
 import base64
@@ -102,7 +103,7 @@ def get_crt_via_dn(token, cert_dn):
 def main():
     token = get_auth_token()
     # search_crt(token, 2)
-    cert_pem = get_crt_via_dn(args.cert_dn)
+    cert_pem = get_crt_via_dn(token, args.cert_dn)
     print(cert_pem)
 
 
